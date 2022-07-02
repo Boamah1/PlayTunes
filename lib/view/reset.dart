@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Reset_Pass extends StatefulWidget {
   const Reset_Pass({Key? key}) : super(key: key);
@@ -9,6 +10,10 @@ class Reset_Pass extends StatefulWidget {
 }
 
 class _Reset_PassState extends State<Reset_Pass> {
+  TextEditingController codeController = TextEditingController();
+  TextEditingController newPassController = TextEditingController();
+  TextEditingController confPassController = TextEditingController();
+
   @override
   bool isvisible = true;
   Widget build(BuildContext context) {
@@ -24,21 +29,20 @@ class _Reset_PassState extends State<Reset_Pass> {
         ),
         Scaffold(
           backgroundColor: Colors.transparent,
-          appBar: AppBar(
-            elevation: 0,
-            backgroundColor: Colors.black,
-          ),
           body: SingleChildScrollView(
             child: SafeArea(
               child: Column(
                 // crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const ListTile(
+                  SizedBox(
+                    height: 60.h,
+                  ),
+                  ListTile(
                     title: Text(
                       "RESET PASSWORD",
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 20,
+                        fontSize: 17.5.sp,
                         color: Colors.white,
                       ),
                     ),
@@ -47,42 +51,52 @@ class _Reset_PassState extends State<Reset_Pass> {
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
-                        fontSize: 15,
+                        fontSize: 13.1.sp,
                       ),
                     ),
                   ),
-                  const SizedBox(
-                    height: 50,
+                  SizedBox(
+                    height: 42.h,
                   ),
-                  const ListTile(
+                  ListTile(
                     title: Text(
                       "Four Digit Code",
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
-                        fontSize: 15,
+                        fontSize: 13.1.sp,
                       ),
                     ),
                     subtitle: TextField(
-                      decoration: InputDecoration(
+                      controller: codeController,
+                      onChanged: (value) {
+                        if (value.length == 4) {
+                          FocusScope.of(context).nextFocus();
+                        }
+                      },
+                      keyboardType: TextInputType.number,
+                      style: const TextStyle(color: Colors.white),
+                      decoration: const InputDecoration(
                         enabledBorder: UnderlineInputBorder(
                           borderSide: BorderSide(color: Colors.white),
                         ),
                       ),
                     ),
                   ),
-                  const SizedBox(
-                    height: 30,
+                  SizedBox(
+                    height: 25.h,
                   ),
                   ListTile(
-                    title: const Text(
+                    title: Text(
                       "New Password",
                       style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                          fontSize: 15),
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                        fontSize: 13.1.sp,
+                      ),
                     ),
                     subtitle: TextField(
+                      controller: newPassController,
                       decoration: InputDecoration(
                         suffixIcon: IconButton(
                           onPressed: () {
@@ -101,19 +115,20 @@ class _Reset_PassState extends State<Reset_Pass> {
                       ),
                     ),
                   ),
-                  const SizedBox(
-                    height: 30,
+                  SizedBox(
+                    height: 25.h,
                   ),
                   ListTile(
-                    title: const Text(
+                    title: Text(
                       "Confirm Password",
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 15,
+                        fontSize: 13.1.sp,
                         color: Colors.white,
                       ),
                     ),
                     subtitle: TextField(
+                      controller: confPassController,
                       decoration: InputDecoration(
                         suffixIcon: IconButton(
                           onPressed: () {
@@ -134,17 +149,17 @@ class _Reset_PassState extends State<Reset_Pass> {
                       ),
                     ),
                   ),
-                  const SizedBox(
-                    height: 50,
+                  SizedBox(
+                    height: 41.3.h,
                   ),
                   Center(
                     child: ElevatedButton(
                       onPressed: () {},
-                      child: const Text(
+                      child: Text(
                         "Reset poassword",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 15,
+                          fontSize: 13.2.sp,
                         ),
                       ),
                       style: ElevatedButton.styleFrom(
@@ -152,24 +167,24 @@ class _Reset_PassState extends State<Reset_Pass> {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(17),
                         ),
-                        minimumSize: const Size(
-                          300,
-                          50,
+                        minimumSize: Size(
+                          263.w,
+                          41.3.h,
                         ),
                       ),
                     ),
                   ),
-                  const SizedBox(
-                    height: 70,
+                  SizedBox(
+                    height: 58.h,
                   ),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.start,
-                    children: const [
+                    children: [
                       Text(
                         "If you read bla bla bla bla bla 😂",
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: 15,
+                          fontSize: 13.1.sp,
                           fontWeight: FontWeight.bold,
                         ),
                       ),

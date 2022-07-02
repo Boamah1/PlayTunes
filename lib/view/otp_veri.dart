@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Otp extends StatefulWidget {
   const Otp({Key? key}) : super(key: key);
@@ -15,10 +17,6 @@ class _OtpState extends State<Otp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.black,
-      ),
       body: SingleChildScrollView(
         child: SafeArea(
           child: Column(
@@ -26,8 +24,8 @@ class _OtpState extends State<Otp> {
               Stack(
                 children: [
                   Container(
-                    height: 700,
-                    width: 400,
+                    height: 680.h,
+                    width: double.maxFinite.w,
                     decoration: const BoxDecoration(
                       image: DecorationImage(
                         image: AssetImage("images/style.jpeg"),
@@ -37,82 +35,54 @@ class _OtpState extends State<Otp> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Padding(
+                        SizedBox(
+                          height: 60.h,
+                        ),
+                        Padding(
                           padding: EdgeInsets.symmetric(
-                            horizontal: 20,
-                            vertical: 30,
+                            horizontal: 17.h,
+                            vertical: 25.h,
                           ),
                           child: Text(
                             "OTP VERIFICATION",
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               color: Colors.white,
-                              fontSize: 20,
+                              fontSize: 17.5.sp,
                             ),
                           ),
                         ),
-                        const Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 20),
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 17.5.w),
                           child: Text(
                             "Verify the OTP sent to boy*****@gamail.com",
                             style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
-                              fontSize: 15,
+                              fontSize: 13.1.sp,
                             ),
                           ),
                         ),
-                        const SizedBox(
-                          height: 100,
+                        SizedBox(
+                          height: 41.3.h,
                         ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Container(
-                              child: TextField(
-                                controller: controller1,
-                              ),
-                              height: 3,
-                              width: 50,
-                              // color: Colors.white,
-                            ),
-                            Container(
-                              child: TextField(
-                                controller: controller2,
-                              ),
-                              height: 3,
-                              width: 50,
-                              // color: Colors.white,
-                            ),
-                            Container(
-                              child: TextField(
-                                controller: controller3,
-                              ),
-                              height: 3,
-                              width: 50,
-                              // color: Colors.white,
-                            ),
-                            Container(
-                              child: TextField(
-                                controller: controller4,
-                              ),
-                              height: 3,
-                              width: 50,
-                              // color: Colors.white,
-                            ),
-                          ],
+                        NewWidget(
+                          controller1: controller1,
+                          controller2: controller2,
+                          controller3: controller3,
+                          controller4: controller4,
                         ),
-                        const SizedBox(
-                          height: 60,
+                        SizedBox(
+                          height: 60.h,
                         ),
                         Center(
                           child: ElevatedButton(
                             onPressed: () {},
-                            child: const Text(
+                            child: Text(
                               "Verify",
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                                fontSize: 15,
+                                fontSize: 13.1.sp,
                               ),
                             ),
                             style: ElevatedButton.styleFrom(
@@ -120,7 +90,7 @@ class _OtpState extends State<Otp> {
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(17),
                               ),
-                              minimumSize: const Size(300, 50),
+                              minimumSize: Size(263.w, 41.3.h),
                             ),
                           ),
                         ),
@@ -133,6 +103,130 @@ class _OtpState extends State<Otp> {
           ),
         ),
       ),
+    );
+  }
+}
+
+class NewWidget extends StatelessWidget {
+  const NewWidget({
+    Key? key,
+    required this.controller1,
+    required this.controller2,
+    required this.controller3,
+    required this.controller4,
+  }) : super(key: key);
+
+  final TextEditingController controller1;
+  final TextEditingController controller2;
+  final TextEditingController controller3;
+  final TextEditingController controller4;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        SizedBox(
+          height: 40.h,
+          width: 55.w,
+          child: TextField(
+            cursorColor: Colors.white,
+            controller: controller1,
+            onChanged: (value) {
+              if (value.length == 1) {
+                FocusScope.of(context).nextFocus();
+              }
+            },
+            style: TextStyle(color: Colors.white),
+            keyboardType: TextInputType.number,
+            textAlign: TextAlign.center,
+            inputFormatters: [
+              LengthLimitingTextInputFormatter(1),
+              FilteringTextInputFormatter.digitsOnly
+            ],
+            decoration: InputDecoration(
+              enabledBorder: UnderlineInputBorder(
+                borderSide: BorderSide(color: Colors.white),
+              ),
+            ),
+          ),
+        ),
+        SizedBox(
+          height: 40.h,
+          width: 55.h,
+          child: TextField(
+            cursorColor: Colors.white,
+            controller: controller2,
+            onChanged: (value) {
+              if (value.length == 1) {
+                FocusScope.of(context).nextFocus();
+              }
+            },
+            style: TextStyle(color: Colors.white),
+            keyboardType: TextInputType.number,
+            textAlign: TextAlign.center,
+            inputFormatters: [
+              LengthLimitingTextInputFormatter(1),
+              FilteringTextInputFormatter.digitsOnly
+            ],
+            decoration: InputDecoration(
+              enabledBorder: UnderlineInputBorder(
+                borderSide: BorderSide(color: Colors.white),
+              ),
+            ),
+          ),
+        ),
+        SizedBox(
+          height: 40.h,
+          width: 55.w,
+          child: TextField(
+            cursorColor: Colors.white,
+            controller: controller3,
+            onChanged: (value) {
+              if (value.length == 1) {
+                FocusScope.of(context).nextFocus();
+              }
+            },
+            style: TextStyle(color: Colors.white),
+            keyboardType: TextInputType.number,
+            textAlign: TextAlign.center,
+            inputFormatters: [
+              LengthLimitingTextInputFormatter(1),
+              FilteringTextInputFormatter.digitsOnly
+            ],
+            decoration: InputDecoration(
+              enabledBorder: UnderlineInputBorder(
+                borderSide: BorderSide(color: Colors.white),
+              ),
+            ),
+          ),
+        ),
+        SizedBox(
+          height: 40.h,
+          width: 55.w,
+          child: TextField(
+            cursorColor: Colors.white,
+            controller: controller4,
+            onChanged: (value) {
+              if (value.length == 1) {
+                FocusScope.of(context).nextFocus();
+              }
+            },
+            style: TextStyle(color: Colors.white),
+            keyboardType: TextInputType.number,
+            textAlign: TextAlign.center,
+            inputFormatters: [
+              LengthLimitingTextInputFormatter(1),
+              FilteringTextInputFormatter.digitsOnly
+            ],
+            decoration: InputDecoration(
+              enabledBorder: UnderlineInputBorder(
+                borderSide: BorderSide(color: Colors.white),
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

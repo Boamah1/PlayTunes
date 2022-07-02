@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Woo_Hoo extends StatefulWidget {
   const Woo_Hoo({Key? key}) : super(key: key);
@@ -13,42 +14,41 @@ class _Woo_HooState extends State<Woo_Hoo> {
     return Stack(
       children: [
         Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             image: DecorationImage(
-                image: AssetImage("images/blue.jpg"), fit: BoxFit.cover),
+              image: AssetImage("images/blue.jpg"),
+              fit: BoxFit.cover,
+            ),
           ),
         ),
         Scaffold(
           backgroundColor: Colors.transparent,
-          appBar: AppBar(
-            elevation: 0,
-            backgroundColor: Colors.black,
-          ),
           body: SingleChildScrollView(
             child: SafeArea(
               child: Column(
                 children: [
                   SizedBox(
-                    height: 100,
+                    height: 133.h,
                   ),
                   Center(
                     child: CircleAvatar(
-                      radius: 55,
+                      radius: 55.sm,
                       backgroundImage: AssetImage("images/good.jpeg"),
                     ),
                   ),
                   SizedBox(
-                    height: 17,
+                    height: 17.sm,
                   ),
                   Text(
                     "WOO HOO!!",
                     style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 27),
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 27.sm,
+                    ),
                   ),
                   SizedBox(
-                    height: 17,
+                    height: 17.sm,
                   ),
                   Text(
                     "Your Password has been reset successfull",
@@ -58,17 +58,18 @@ class _Woo_HooState extends State<Woo_Hoo> {
                         fontSize: 15),
                   ),
                   SizedBox(
-                    height: 5,
+                    height: 5.sm,
                   ),
                   Text(
                     "Now login with your new password",
                     style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 15),
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 15.sm,
+                    ),
                   ),
                   SizedBox(
-                    height: 50,
+                    height: 50.sm,
                   ),
                   ElevatedButton(
                     onPressed: () {},
@@ -76,7 +77,7 @@ class _Woo_HooState extends State<Woo_Hoo> {
                       "Sigin in",
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 15,
+                        fontSize: 15.sm,
                       ),
                     ),
                     style: ElevatedButton.styleFrom(
@@ -84,7 +85,7 @@ class _Woo_HooState extends State<Woo_Hoo> {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(17),
                       ),
-                      minimumSize: Size(300, 50),
+                      minimumSize: Size(300.sm, 50.sm),
                     ),
                   ),
                 ],
