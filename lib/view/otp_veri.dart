@@ -40,7 +40,7 @@ class _OtpState extends State<Otp> {
                         ),
                         Padding(
                           padding: EdgeInsets.symmetric(
-                            horizontal: 17.h,
+                            horizontal: 20,
                             vertical: 25.h,
                           ),
                           child: Text(
@@ -86,7 +86,7 @@ class _OtpState extends State<Otp> {
                               ),
                             ),
                             style: ElevatedButton.styleFrom(
-                              primary: Colors.red,
+                              primary: Colors.deepOrangeAccent,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(17),
                               ),
