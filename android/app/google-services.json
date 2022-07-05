@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "687571955048",
+    "project_id": "playtune-flutter-auth",
+    "storage_bucket": "playtune-flutter-auth.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:687571955048:android:816ab4be70f5577b66badd",
+        "android_client_info": {
+          "package_name": "com.example.tunes_2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "687571955048-o53dg04fq5o682f6tb87vgadc6umr4j4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCS00tOXjJgF0XsQ6o7srp9DHZVQdm2YWo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "687571955048-o53dg04fq5o682f6tb87vgadc6umr4j4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
