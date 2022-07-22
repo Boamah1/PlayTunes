@@ -185,7 +185,7 @@ class _SignIn_pageState extends State<SignIn_page> {
                     ),
                     Center(
                       child: ElevatedButton(
-                        onPressed: () async{
+                        onPressed: () async {
                           setState(() {
                             isloading = true;
                           });
@@ -197,16 +197,22 @@ class _SignIn_pageState extends State<SignIn_page> {
                               password: PasswordController.text,
                             );
                             if (currentUser != null) {
-                              Navigator.push(
-                                context,
+                              Navigator.of(context).pushReplacement(
                                 MaterialPageRoute(
-                                    builder: (_) => Home_page(
-                                          userID: currentUser.user!.uid,
-                                        )
-
-                                    // SigninPage(), You were calling the signIn screen again while you are on that same scrn
-                                    ),
+                                  builder: (_) =>
+                                      Home_page(userID: currentUser.user!.uid),
+                                ),
                               );
+                              // Navigator.push(
+                              //   context,
+                              //   MaterialPageRoute(
+                              //       builder: (_) => Home_page(
+                              //             userID: currentUser.user!.uid,
+                              //           )
+
+                              //       // SigninPage(), You were calling the signIn screen again while you are on that same scrn
+                              //       ),
+                              // );
                               setState(() {
                                 isloading = true;
                               });
@@ -251,11 +257,12 @@ class _SignIn_pageState extends State<SignIn_page> {
                           ),
                         ),
                         style: ElevatedButton.styleFrom(
-                            primary: Colors.deepOrangeAccent,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(17.sp),
-                            ),
-                            minimumSize: Size(270.w, 44.3.h)),
+                          primary: Colors.deepOrangeAccent,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(17.sp),
+                          ),
+                          minimumSize: Size(270.w, 44.3.h),
+                        ),
                       ),
                     ),
                     SizedBox(

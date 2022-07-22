@@ -220,7 +220,7 @@ class _SignUp_pageState extends State<SignUp_page> {
                         ),
                         Center(
                           child: ElevatedButton(
-                            onPressed: () async{
+                            onPressed: () async {
                               setState(
                                 () {
                                   isloading = true;
@@ -256,26 +256,26 @@ class _SignUp_pageState extends State<SignUp_page> {
                                   ),
                                 );
                               }
-                              // print('good');
-                              // if (EmailControllar.text.isEmpty ||
-                              //     PasswordControllar.text.isEmpty ||
-                              //     UsernameControllar.text.isEmpty) {
-                              //   print("is empty");
-                              //   ScaffoldMessenger.of(context).showSnackBar(
-                              //     SnackBar(
-                              //       content: Text("Invalid"),
-                              //       backgroundColor: Colors.deepOrange,
-                              //       duration: Duration(seconds: 1),
-                              //     ),
-                              //   );
-                              // } else {
-                              //   Navigator.push(
-                              //     context,
-                              //     MaterialPageRoute(
-                              //       builder: (_) => const SignIn_page(),
-                              //     ),
-                              //   );
-                              // };
+                              print('good');
+                              if (EmailControllar.text.isEmpty ||
+                                  PasswordControllar.text.isEmpty ||
+                                  UsernameControllar.text.isEmpty) {
+                                print("is empty");
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text("Invalid"),
+                                    backgroundColor: Colors.deepOrange,
+                                    duration: Duration(seconds: 1),
+                                  ),
+                                );
+                              } else {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (_) => const SignIn_page(),
+                                  ),
+                                );
+                              };
                             },
                             child: Text(
                               "Sign Up",
@@ -288,7 +288,8 @@ class _SignUp_pageState extends State<SignUp_page> {
                             style: ElevatedButton.styleFrom(
                               primary: Colors.deepOrangeAccent,
                               shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(17.h)),
+                                borderRadius: BorderRadius.circular(17.h),
+                              ),
                               minimumSize: Size(270.w, 44.3.h),
                             ),
                           ),
@@ -352,7 +353,7 @@ class _SignUp_pageState extends State<SignUp_page> {
                             ),
                             InkWell(
                               onTap: () {
-                                 Navigator.push(
+                                Navigator.push(
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) => SignIn_page(),
